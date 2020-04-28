@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+    *{margin:0;}
+    .all{
+        margin:0 auto; width:400px;
+    }
+    .top{
+        background-color:#494a4b ;
+        width:410px;
+        height:290px;
+        
+    }
+    .ceiling{
+        display: flex;
+        padding: 20px 0px 30px 0px;
+    }
+    .startcomplete{
+        display:flex;
+    }
+    .complete{
+        margin-left: 12em;
+    }
+    .arrow{
+        margin: 0px 30px 0px 25px;
+    }
+    .start{
+        color: white;
+    }
+    .complete{
+        color: #969696;
+        float: right;
+    }
+    .wb{
+        background-color: white;
+        width: 200px;
+        height: 180px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-end;
+    }
+    .wb div{
+        padding-left: 20px;
+    }
+    .wbletter{
+        font-size: small;
+        padding: 15px 0px 25px 0px;
+    }
+    .yb{
+        background-color: #FFDC4A;
+        width: 150px;
+        height:180px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .card {
+        display:flex;
+        margin-left: 30px;       
+    }
+    .bottom{
+        color:gray;
+        margin-left: 5px;
+    }
+    .name{
+        margin: 20px 0px 20px 5px;
+    }
+    .nickmiddle{
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0px;
+    }
+    .introducetop{
+        margin-bottom: 5px;
+    }
+    .urltop{
+        margin-bottom: 5px;
+    }
+    .contacttop{
+        display: flex;       
+    }
+    .emailtop{
+        display: flex;
+    }
+    .lastline{
+        margin-bottom: 15px;
+    }
+    .line{
+        margin-bottom: 33px;
+    }
+    .contacttitle{
+        margin-left: 5px;
+    }
+    .contactimg{
+        margin-top:2px;
+    }
+    .emailtitle{
+        margin-left: 5px;
+    }
+    .emailimg{
+        margin-top:2px;
+    }    
+    .last{
+        margin:auto ; width:400px;
+    }
+    *{
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    #btn-top{
+        border: none;
+        background-color: inherit;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+        padding: 0;
+    }
+    
+
+</style>
+<script>
+   
+    const dataa = async () => {
+        const result = await fetch('data.json').then(res=>res.json())
+        document.querySelector('.from1').innerHTML=result.data1.name;
+        document.querySelector('.introducetop').innerHTML=result.data1.self;
+        document.querySelector('.urltop').innerHTML=result.data1.URL;
+        document.querySelector('.contacttitle').innerHTML=result.data1.phone;
+        document.querySelector('.emailtitle').innerHTML=result.data1.email;
+    };
+    const datab = async () => {
+        const result = await fetch('data.json').then(res=>res.json())
+        document.querySelector('.from1').innerHTML=result.data2.name;
+        document.querySelector('.introducetop').innerHTML=result.data2.self;
+        document.querySelector('.urltop').innerHTML=result.data2.URL;
+        document.querySelector('.contacttitle').innerHTML=result.data2.phone;
+        document.querySelector('.emailtitle').innerHTML=result.data2.email;
+    };
+</script>
+    <title>profile card</title>
+</head>
+<body>
+    
+    <div class="all">
+        <div class = "top">
+            <div class="ceiling">
+                <div class="arrow">
+                    <input type="image" src="arrow4.png" type="button" value="0" width="20px" height="20px" onclick="
+
+                    const allow = document.querySelector('body');
+                    if(this.value === '0'){
+                        allow.style.backgroundColor = 'black';
+                        this.value = '1';
+                    } else {
+                        allow.style.backgroundColor = 'white';
+                        this.value = '0';
+                    }
+                    ">
+            </div>
+            <div class="startcomplete">
+                <button id="btn-top" class="start" onclick="dataa();">프로필</button>
+                <button id="btn-top" class="start" onclick="datab();">카드</button>
+                <button id="btn-top" class="complete"onclick="location.reload(true);">완료</button>
+            <!-- <div class="complete">완료</div> -->
+        </div>
+        </div>
+        <div class="card">
+         
+            <div class="wb">
+                <div class="id">
+                    <img src="id.png" width="35px">
+                </div>
+                <div class="wbletter">
+                    자기소개를 입력해주세요.
+                </div>
+            </div>
+       
+            <div class="yb">
+
+            </div>
+
+        </div>
+    </div>
+    <div class ="bottom">
+        <div class="name">
+            프로필 정보
+        </div>
+        <div class="nickname">
+            <div style="font-size: small;">닉네임 (1/20)</div>
+            <div class="nickmiddle">
+                <div class="from1" id="1">닉네임을 입력하세요</div>
+                <img src="nickx.png" width="20px;"; height="20px;">
+            </div>
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="introduce">
+            <div class="introducetop">자기소개(필수입력)</div>
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="url">
+            <div class="urltop">open.kakao.com/me/프로필 URL</div>
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="contact">
+            <div class="contacttop">
+                <div class="contactimg">
+                    <img src="contact.png" width="20px" height="20px">
+                </div>
+                
+                <div class="contacttitle">연락처(동의 필요)</div>
+            </div>
+            
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="email">
+            <div class="emailtop">
+                <div class="emailimg">
+                    <img src="email.png" width="20px" height="20px">
+                </div>
+                
+                <div class="emailtitle">이메일(동의 필요)</div>
+            </div>
+            
+            <div class="lastline">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="last">
+    <hr size="2" width="410" color="black">
+</div>
+
+
+</body>
+</html>

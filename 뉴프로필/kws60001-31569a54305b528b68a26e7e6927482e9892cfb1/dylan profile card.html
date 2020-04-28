@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+    *{margin:0;}
+    .all{
+        margin:0 auto; width:400px;
+    }
+    .top{
+        background-color:#494a4b ;
+        width:410px;
+        height:290px;
+        
+    }
+    .ceiling{
+        display: flex;
+        padding: 20px 0px 30px 0px;
+    }
+    .startcomplete{
+        display:flex;
+    }
+    .complete{
+        padding-left: 190px;
+    }
+    .arrow{
+        margin: 0px 30px 0px 25px;
+    }
+    .start{
+        color: white;
+    }
+    .complete{
+        color: #969696;
+        float: right;
+    }
+    .wb{
+        background-color: white;
+        width: 200px;
+        height: 180px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        display: flex;
+        flex-direction:column;
+        justify-content: flex-end;
+    }
+    .wb div{
+        padding-left: 20px;
+    }
+    .wbletter{
+        font-size: small;
+        padding: 15px 0px 25px 0px;
+    }
+    .yb{
+        background-color: #FFDC4A;
+        width: 150px;
+        height:180px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    .card {
+        display:flex;
+        margin-left: 30px;       
+    }
+    .bottom{
+        color:gray;
+        margin-left: 5px;
+    }
+    .name{
+        margin: 20px 0px 20px 5px;
+    }
+    .nickmiddle{
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0px;
+    }
+    .introducetop{
+        margin-bottom: 5px;
+    }
+    .urltop{
+        margin-bottom: 5px;
+    }
+    .contacttop{
+        display: flex;       
+    }
+    .emailtop{
+        display: flex;
+    }
+    .lastline{
+        margin-bottom: 15px;
+    }
+    .line{
+        margin-bottom: 33px;
+    }
+    .contacttitle{
+        margin-left: 5px;
+    }
+    .contactimg{
+        margin-top:2px;
+    }
+    .emailtitle{
+        margin-left: 5px;
+    }
+    .emailimg{
+        margin-top:2px;
+    }    
+    .last{
+        margin:auto ; width:400px;
+    }
+    *{
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    
+</style>
+    <title>profile card</title>
+</head>
+<body>
+    
+<div class="all">
+    <div class = "top">
+        <div class="ceiling">
+            <div class="arrow">
+                <img src="arrow4.png" width="20px" height="20px">
+            </div>
+            <div class="startcomplete">
+            <div class="start">프로필 카드</div>
+            <div class="complete">완료</div>
+        </div>
+        </div>
+        <div class="card">
+         
+            <div class="wb">
+                <div class="id">
+                    <img src="id.png" width="35px">
+                </div>
+                <div class="wbletter">
+                    #개발자 #지망생
+                </div>
+            </div>
+       
+            <div class="yb">
+
+            </div>
+
+        </div>
+    </div>
+    <div class ="bottom">
+        <div class="name">
+            프로필 정보
+        </div>
+        <div class="nickname">
+            
+            <div class="nickmiddle">
+                김우석
+            </div>
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="introduce">
+            <div class="introducetop">프로그래머 지망생입니다.</div>
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="url">
+            <div class="urltop">open.kakao.com/me/kws60001</div>
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="contact">
+            <div class="contacttop">
+                <div class="contactimg">
+                    <img src="contact.png" width="20px" height="20px">
+                </div>
+                
+                <div class="contacttitle">010-4010-1994</div>
+            </div>
+            
+            <div class="line">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        <div class="email">
+            <div class="emailtop">
+                <div class="emailimg">
+                    <img src="email.png" width="20px" height="20px">
+                </div>
+                
+                <div class="emailtitle">a01040101994@gmail.com</div>
+            </div>
+            
+            <div class="lastline">
+                <hr size="2" width="400" color=#DADADA>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="last">
+    <hr size="2" width="410" color="black">
+</div>
+
+<script>
+    console.log(fetch("https://randomuser.me/api/?results=10"));
+    fetch("https://randomuser.me/api/?results=10")
+.then(response => response.json())
+.then(json => console.log(json))
+.catch(err => console.log(err));
+</script>
+</body>
+
+</html>
