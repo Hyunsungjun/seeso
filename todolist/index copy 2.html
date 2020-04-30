@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input id="studentnumber" placeholder="Student Number"></input>
+<input id="status" placeholder="Status"></input>
+<button id="bt1" onclick="newUser()">Validate</button>
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+//Array
+var jsonStr = 
+    '{"G11S":[{"StudentNumber":"1","status":"Pass"}]}';
+
+
+function newUser(){
+  var user = {};
+
+  user.StudentNumber = document.getElementById("studentnumber").value;
+  user.status = document.getElementById("status").value;
+
+  //Debug
+  console.log(user);
+
+  var obj = JSON.parse(jsonStr);
+  obj['G11S'].push(user);
+
+  jsonStr = JSON.stringify(obj);
+  console.log(jsonStr);
+}
+
+
+</script>
+
+</body>
+</html>

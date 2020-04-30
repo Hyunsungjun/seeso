@@ -120,22 +120,22 @@
 
 </style>
 <script>
-   
+   //카멜케이스쓸것 변수명의경우 프로퍼티나 아이디를 만들때는 -쓰고 이퀄앞뒤에는 공백을 넣어준다. res
     const dataa = async () => {
-        const result = await fetch('data.json').then(res=>res.json())
-        document.querySelector('.from1').innerHTML=result.data1.name;
-        document.querySelector('.introducetop').innerHTML=result.data1.self;
-        document.querySelector('.urltop').innerHTML=result.data1.URL;
-        document.querySelector('.contacttitle').innerHTML=result.data1.phone;
-        document.querySelector('.emailtitle').innerHTML=result.data1.email;
+        const result = await fetch('data.json').then(res => res.json())
+        document.querySelector('.from1').innerHTML = result.data1.name;
+        document.querySelector('.introducetop').innerHTML = result.data1.self;
+        document.querySelector('.urltop').innerHTML = result.data1.URL;
+        document.querySelector('.contacttitle').innerHTML = result.data1.phone;
+        document.querySelector('.emailtitle').innerHTML = result.data1.email;
     };
     const datab = async () => {
-        const result = await fetch('data.json').then(res=>res.json())
-        document.querySelector('.from1').innerHTML=result.data2.name;
-        document.querySelector('.introducetop').innerHTML=result.data2.self;
-        document.querySelector('.urltop').innerHTML=result.data2.URL;
-        document.querySelector('.contacttitle').innerHTML=result.data2.phone;
-        document.querySelector('.emailtitle').innerHTML=result.data2.email;
+        const result = await fetch('data.json').then(res => res.json())
+        document.querySelector('.from1').innerHTML = result.data2.name;
+        document.querySelector('.introducetop').innerHTML = result.data2.self;
+        document.querySelector('.urltop').innerHTML = result.data2.URL;
+        document.querySelector('.contacttitle').innerHTML = result.data2.phone;
+        document.querySelector('.emailtitle').innerHTML = result.data2.email;
     };
 </script>
     <title>profile card</title>
@@ -161,8 +161,8 @@
             <div class="startcomplete">
                 <button id="btn-top" class="start" onclick="dataa();">프로필</button>
                 <button id="btn-top" class="start" onclick="datab();">카드</button>
-                <button id="btn-top" class="complete"onclick="location.reload(true);">완료</button>
-            <!-- <div class="complete">완료</div> -->
+                <button id="btn-top" class="complete" onclick="location.reload(true);">완료</button>
+
         </div>
         </div>
         <div class="card">

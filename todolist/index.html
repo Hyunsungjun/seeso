@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            margin: auto;
+            width: 300px;
+            border: 1px solid #000;
+            background-color: white;
+        }
+        div>.Title-main{
+            text-align: center;
+        }
+        .myInput{
+
+        }
+        .myUL{
+            
+        }
+        li{
+            padding-left: 30px;
+            list-style: none;
+        }
+        .inline-center{
+            display: flex;
+            justify-content: center;
+        }
+        .addBtn{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 class="Title-main">Todolist</h2>
+        <div class="inline-center">
+            <input type="text" id="myInput" placeholder='"New Task"' >
+            <!-- <button class="addBtn" onclick="newElement();">add</button> -->
+            <input type="submit" class="addBtn" value="add" onclick="newElement()">
+        </div>
+
+        <ul id="myUL">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+<script>
+
+    const USER_I = "currentUser"
+
+    //original li create x
+    const makeX = document.getElementsByTagName("li");
+    let j;
+    let i;
+    for(j = 0; j < makeX.length; j++){
+        const span = document.createElement("span");
+        const remov = document.createTextNode("x");
+        span.className = "close";
+        span.onclick = "i"
+        span.appendChild(remov);
+        makeX[j].appendChild(span);
+    };
+        // const bye = document.getElementsByClassName("close");
+        // if(remov.onclick === true){
+        // bye[i].removeChild(remov)
+        // }
+    //add
+
+    function newElement(){ //다시 분석해봄
+    const newTask = document.getElementById("myInput").value; //입력값 
+    const addLi = document.createElement("li"); 
+    const addspan = document.createElement("span"); 
+
+    const addtxt = document.createTextNode(newTask); 
+    const addX = document.createTextNode("x"); 
+    addLi.appendChild(addtxt);
+    console.log(addLi);
+    if(newTask===""){
+        alert("값을 입력해주세요");
+    } else {
+        document.getElementById("myUL").appendChild(addLi);
+        //new li create x
+        document.getElementById("myUL").appendChild(addLi).appendChild(addspan).appendChild(addX);
+        addspan.className = "close";
+        document.querySelector("#myInput").value = "";
+        document.querySelector(".close")
+
+
+    }
+    //hide li 
+    };
+
+
+
+    // document.getElementsByClassName("close").removeEventListener('click', onclick
+
+    
+</script>
+</body>
+</html>
