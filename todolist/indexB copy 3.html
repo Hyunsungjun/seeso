@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            margin: auto;
+            width: 300px;
+            border: 1px solid #000;
+            background-color: white;
+        }
+        div>.Title-main{
+            text-align: center;
+        }
+        .myInput{
+        }
+        .myUL{
+            
+        }
+        li{
+            padding-left: 30px;
+            list-style: none;
+        }
+        .inline-center{
+            display: flex;
+            justify-content: center;
+        }
+        .addBtn{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 class="Title-main">Todolist</h2>
+        <div class="inline-center">
+            <input type="text" id="myInput" placeholder='"New Task"' >
+            <input type="submit" class="addBtn" value="add" onclick="newElement()">
+        </div>
+
+        <ul id="myUL">
+            <li>1</li>
+
+        </ul>
+    </div>
+
+<script>
+
+
+    //add
+    //함수 내에선 json,string 데이터를 생성 해낼수있다 함수 밖에서 써야 데이터가 추가가 되므로
+    // const PrintOb1 = JSON.parse(jsonStr);
+    // console.log('함수밖에선 어떻게 나오는지 봅시다',jsonStr);
+
+    window.onlolad = function newElement(){ //다시 분석해봄
+    const newTask = document.getElementById("myInput").value; //입력값 
+    //json기반으로 바뀌면서 필요없어짐 
+
+    let ToDo = {}; //데이터 넣어볼 그라운드
+    ToDo = newTask; //todo.네임 붙이니까 키값이 붙어서 나옴 근데 이게 후처리할때 string으로 나오는 이슈가 있어서 쓸모없다
+    //Debug
+    console.log('Todo 내가 방금 입력한 값',ToDo);
+    jsonStr['myInput'].push(ToDo);
+    console.log('json 문자 데이터 보기',jsonStr);
+
+    
+    if(newTask===""){
+        alert("값을 입력해주세요");
+    } else {
+    document.querySelector("#myInput").value = "";
+    }
+    let i=0;
+
+    
+    const creLi = document.createElement('li');
+    const elem =JSON.stringify(jsonStr.myInput).toString().slice(1,-1);
+    const creTxt = document.createTextNode(jsonStr.myInput);
+    creLi.appendChild(creTxt);
+    document.getElementById('myUL').appendChild(creLi);
+
+};
+//original li create x
+// const makeX = document.getElementsByTagName("li");
+// let j;
+// let i;
+// for(j = 0; j < makeX.length; j++){
+//     const span = document.createElement("span");
+//     const remov = document.createTextNode("x");
+//     span.className = "close";
+//     span.appendChild(remov);
+//     makeX[j].appendChild(span);
+// };
+let jsonStr = {"myInput":["json형태의 데이터를 HTML에 출력해보기","ggg"]}; //확인용 기존 데이터
+
+</script>
+</body>
+</html>

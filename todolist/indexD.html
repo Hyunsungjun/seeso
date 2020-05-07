@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            margin: auto;
+            width: 300px;
+            border: 1px solid #000;
+            background-color: white;
+        }
+
+        div>.Title-main {
+            text-align: center;
+        }
+
+        .myInput {}
+
+        .myUL {}
+
+        li {
+            padding-left: 30px;
+            list-style: none;
+        }
+
+        .inline-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .addBtn {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2 class="Title-main">Todolist</h2>
+        <div class="inline-center">
+            <input type="text" id="myInput" placeholder='"New Task"'>
+            <input type="submit" class="addBtn" value="add" onclick="addTodo()">
+        </div>
+
+        <ul id="myUl">
+
+        </ul>
+    </div>
+
+</body>
+<script>
+    //data define
+
+    const data = {
+        todos: []
+    };
+    const render = () => {
+        document.getElementById('myUl').innerHTML =
+        data.todos.map(todo => `<li class = "close">${todo}<button>삭제</button></li>`).join('')
+    }
+    const addTodo = v => {
+        const c = document.getElementById('myInput').value;
+        data.todos.push(c);
+        render();
+        const newTask = document.getElementById("myInput").value; //입력값 
+        if (newTask === "") {
+            // alert("값을 입력해주세요");
+        } else {
+            document.querySelector("#myInput").value = "";
+        }
+    };
+    const removeTodo = i => {
+        data.todos.splice(i, 0);
+        render();
+    }
+    // document.getElementsByClassName('close').innerHTML = document.createElement('button');
+</script>
+
+</html>

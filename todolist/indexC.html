@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            margin: auto;
+            width: 300px;
+            border: 1px solid #000;
+            background-color: white;
+        }
+        div>.Title-main{
+            text-align: center;
+        }
+        .myInput{
+        }
+        .myUL{
+            
+        }
+        li{
+            padding-left: 30px;
+            list-style: none;
+        }
+        .inline-center{
+            display: flex;
+            justify-content: center;
+        }
+        .addBtn{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2 class="Title-main">Todolist</h2>
+        <div class="inline-center">
+            <input type="text" id="myInput" placeholder='"New Task"' >
+            <input type="submit" class="addBtn" value="add" onclick="renderer()">
+        </div>
+
+        <div id="myUl">
+
+        </div>
+    </div>
+
+<script>
+//data define
+function renderer() {
+
+
+let todoLater = ['초기값'];
+let inputValue = document.querySelector('#myInput').value;
+    todoLater.push(inputValue);
+    console.log(todoLater);
+}
+// function renderer() {
+//     const p = (acc, cur) => 
+//     document.querySelector('#myUL').innerHTML = 
+//     data.todos.reduce((p,inputValue) => 
+//     p + `<li>${c}</li>`, '<ul>') + '</ul>'
+// };
+// console.log(renderer())
+
+// let data = [{
+//     todos:["json형태의 데이터를 HTML에 출력해보기","두번째 인덱스"]
+// }];
+
+// let addData = data.reduce((accu, curr) => 
+//     {return [...accu, ...curr.todos], ['새로운 값']});
+
+// console.log(addData);
+
+
+
+// const renderer = () => {
+//     document.querySelector('.class_name').innerHTML = 
+//     data.todos.reduce((p, c) => p + `<li>${c}</li>`, '<ul>') + '</ul>'
+// };
+
+
+</script>
+</body>
+</html>
