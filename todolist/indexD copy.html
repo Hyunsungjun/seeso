@@ -58,10 +58,10 @@
 </body>
 <script>
     //data define
-;
+    
     const render = () => {
         document.getElementById('myUl').innerHTML =
-            data.todos.map(todo => `<li >${todo}<button class = "close" >delete</button></li>`).join('')
+            data.todos.map((todo,i) => `<li >${todo}<button class = "close" onclick="removeTodo(${i})" >delete</button></li>`).join('')
     }
     const addTodo = v => {
         const c = document.getElementById('myInput').value;
@@ -73,21 +73,13 @@
             render();
             document.querySelector("#myInput").value = "";
         }
-        let j;
-        const eventTarget = document.getElementsByClassName('close');
-        for (j = 0; j < eventTarget.length; j++) {
-            eventTarget[j].addEventListener('click', function () {
-                const parent = document.querySelector('#myUl');
-                const parentThis = parent.removeChild(this.parentElement);
-                // const removeLi = parent.removeChild('li');
-                data.todos.splice(data.todos.indexOf(parentThis), 1);
-                // data.todos.remove(parentThis)
-                j --
-            })
-        };
         console.log(data.todos); //실행확인 
     }
-
+    const removeTodo = i => {
+        
+        data.todos.splice(i,1);
+        render()
+    }
     const data = {
         todos: []
     }
