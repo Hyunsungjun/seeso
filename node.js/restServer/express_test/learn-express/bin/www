@@ -1,0 +1,90 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('learn-express:server');
+var http = require('http');
+// 먼저 app. debug, http 모듈을 가져옵니다. app 모듈은 나중에 살펴봅니다. debug 모듈은 콘솔에 로그를 남기는 모듈입니다.
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+// app.set('port',port)로 서버가 실행될 포트를 설정합니다. process.env 객체에 PORT 속성이 있다면 그 값을 사용하고, 없다면 기본값으로 3000번 포트를 이용하도록 되어있습니다. 이렇게 app.set(키,값)을 사용해서 데이터를 지정할 수 있습니다. 나중에 데이터를 app.get(키)로 가져올 수 있습니다
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+//http.createServer에 불러온 app 모듈을 넣어줍니다. app 모듈이 createServer 메서드의 콜백 함수 역할을 합니다. 
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+// listen을 하는 부분은 http 웹 서버와 동일합니다. 4장에서 서버를 구동했던 것과 동일하게 포트를 연결하고 서버를 실행합니다. 익스프레스는 그저 콜백 함수 부분을 조금 다르게 만든 것입니다.
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
